@@ -27,7 +27,7 @@
 
 	add_theme_support('post-thumbnails');
 	
-	// register_nav_menus(array('primary' => 'Primary Navigation'));
+	register_nav_menus(array('primary' => 'Primary Navigation'));
 
 	/* ========================================================================================================================
 	
@@ -46,7 +46,43 @@
 	e.g. require_once( 'custom-post-types/your-custom-post-type.php' );
 	
 	======================================================================================================================== */
+	// Register Sidebar
+	/*
+	function sidebar_widgets_init() {
+		register_sidebar( array(
+			'name'          => __( 'Todays Menu' ),
+			'id'            => 'sidebar-1',
+			'description'   => __( 'Dnesni nabidka' ),
+			'before_widget' => '<div id="todays-offer">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
 
+		register_sidebar( array(
+			'name'          => __( 'News' ),
+			'id'            => 'sidebar-2',
+			'description'   => __( 'Aktuality' ),
+			'before_widget' => '<div class="aside-news-inner">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
+	}
+	add_action( 'widgets_init', 'sidebar_widgets_init' );
+	*/
+
+
+	// remove default wordpress gallery formating
+	add_filter( 'use_default_gallery_style', '__return_false' );
+	
+
+	// add data-lightbox="gallery" to wp gallery for use with lightbox
+	add_filter('wp_get_attachment_link', 'rc_add_rel_attribute');
+	function rc_add_rel_attribute($link) {
+		global $post;
+		return str_replace('<a href', '<a data-lightbox="gallery" href', $link);
+	}
 
 
 	/* ========================================================================================================================
