@@ -71,6 +71,37 @@
 	}
 	add_action( 'widgets_init', 'sidebar_widgets_init' );
 	*/
+	
+	/* custom login logo */
+	function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+        	background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/IMAGE_NAME_HERE);
+		background-size:auto;
+		width:auto;
+        	height: 97px;
+        }
+    </style>
+    <?php }
+    add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+	function my_login_logo_url() {
+    	return get_bloginfo( 'url' );
+	}
+	add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+	function my_login_logo_url_title() {
+	    return 'Neenan Cycling';
+	}
+	add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+
+
+	/* remove <p> tag around images */
+	function filter_ptags_on_images($content){
+   		return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	}
+	add_filter('the_content', 'filter_ptags_on_images');
 
 
 	// remove default wordpress gallery formating
