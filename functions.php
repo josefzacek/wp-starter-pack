@@ -130,6 +130,21 @@
 	return $init;
 	}
 	add_filter('tiny_mce_before_init', 'my_mce4_options');
+	
+	/* ================================= remove featured image and page attributes meta box ================================= */
+
+	add_action( 'add_meta_boxes', 'my_remove_post_meta_boxes' );
+
+	function my_remove_post_meta_boxes() {
+	
+		
+		/* Featured image meta box. */
+		remove_meta_box( 'postimagediv', 'page', 'side' );
+	
+		/* Page attributes meta box. */
+		//remove_meta_box( 'pageparentdiv', 'page', 'side' );
+	}
+
 
 
 	/* ========================================================================================================================
