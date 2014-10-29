@@ -32,4 +32,6 @@
 <h2>No posts to display</h2>
 <?php endif; ?>
 
+<div class="navigation"><p><?php posts_nav_link(); ?></p></div>
+
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>
