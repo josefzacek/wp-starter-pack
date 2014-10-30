@@ -84,9 +84,10 @@
 	    </style>
 	 <?php }
         add_action( 'login_enqueue_scripts', 'my_login_logo' );
-
+	
+	/* click on logo to get to home page */
 	function my_login_logo_url() {
-    	return get_bloginfo( 'url' );
+    	return home_url();
 	}
 	add_filter( 'login_headerurl', 'my_login_logo_url' );
 
