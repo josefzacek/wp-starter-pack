@@ -3,6 +3,8 @@
 	<?php bloginfo( 'description' ); ?>
 	<?php get_search_form(); ?>
 	
+	<a href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/alanmoore-logo.jpg" alt="Alan Moore logo" class="header-alanmoore-logo"></a>
+	
 	
 	
    <a href="<?php echo home_url(); ?>"> 
