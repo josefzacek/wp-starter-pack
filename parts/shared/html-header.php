@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title><?php bloginfo( 'name' ); ?><?php wp_title( '|' ); ?></title>
+		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="author" content="www.josefzacek.com">
 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
