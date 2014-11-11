@@ -17,7 +17,12 @@
 
 	<h2><?php the_title(); ?></h2>
 	<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-	<?php the_content(); ?>			
+	<?php the_content(); ?>	
+	
+	<div class="clearfix post-navigation">
+		<span style="float: left"><?php previous_post_link('<i class="fa fa-arrow-circle-left"></i> %link'); ?></span>
+		<span style="float: right"><?php next_post_link( '%link <i class="fa fa-arrow-circle-right"></i>' ); ?></span>
+	</div>
 
 	<?php if ( get_the_author_meta( 'description' ) ) : ?>
 	<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
