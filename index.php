@@ -32,6 +32,9 @@
 <h2>No posts to display</h2>
 <?php endif; ?>
 
-<div class="navigation"><p><?php posts_nav_link(); ?></p></div>
+ <div class="clearfix post-navigation">
+ 	<span style="float: left"><?php next_posts_link( '<i class="fa fa-arrow-circle-left"></i> Previous Entries', '' ); ?></span>
+ 	<span style="float: right"><?php previous_posts_link( 'Next Entries <i class="fa fa-arrow-circle-right"></i>' ); ?></span>
+</div>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>
